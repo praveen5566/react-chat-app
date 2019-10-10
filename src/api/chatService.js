@@ -5,6 +5,9 @@ const port = process.env.PORT || 8080
 const baseUrl = `http://localhost:${port}`;
 const apiPrefix = '/api'
 
+export function fetchData(url, options) {
+    return fetch(url, options).then(data => data.json()).then(data => data).catch((e) => { throw e; });
+}
 
 export function getRoomList() {
     const url = `${baseUrl}${apiPrefix}/rooms`;
@@ -13,7 +16,7 @@ export function getRoomList() {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(url, options).then(data => data.json()).then(data => data);
+    return fetchData(url, options);
 }
 
 export function getRoomDetail(roomId) {
@@ -23,7 +26,7 @@ export function getRoomDetail(roomId) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(url, options).then(data => data.json()).then(data => data);
+    return fetchData(url, options);
 }
 
 export function getMessagesByRoomId(roomId) {
@@ -33,7 +36,7 @@ export function getMessagesByRoomId(roomId) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(url, options).then(data => data.json()).then(data => data);
+    return fetchData(url, options);
 }
 
 export function postMessages(roomId, payload) {
@@ -44,5 +47,5 @@ export function postMessages(roomId, payload) {
         body: JSON.stringify(payload)
     };
 
-    return fetch(url, options).then(data => data.json()).then(data => data);
+    return fetchData(url, options);
 }

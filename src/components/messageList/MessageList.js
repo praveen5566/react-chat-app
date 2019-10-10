@@ -8,7 +8,7 @@ export const MessageList = (props) => {
 
     const getMessages = (messages) => {
         if (messages && messages.length > 0) {
-            return messages.map(message => <Message message={message}/>);
+            return messages.map(message => <Message id={message.id} message={message} />);
         }
         return <Loading />;
     }

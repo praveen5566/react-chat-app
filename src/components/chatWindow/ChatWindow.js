@@ -17,20 +17,20 @@ export const ChatWindow = () => {
 
 
     useEffect(() => {
-        getRoomList().then(data => setRoomList(data));
+        getRoomList().then(data => setRoomList(data)).catch((e) => { console.log(e) });
         getRoomDetail(roomIndex).then((data) => {
             setRoomName(data.name);
             setRoomUsers(data.users);
-        });
+        }).catch((e) => { console.log(e) });
         getMessagesByRoomId(roomIndex).then((data) => {
             setMessageList(data);
-        });
+        }).catch((e) => { console.log(e) });
     }, []);
 
     useEffect(() => {
         getMessagesByRoomId(roomIndex).then((data) => {
             setMessageList(data);
-        });
+        }).catch((e) => { console.log(e) });
     }, [isMessageSent]);
 
     const getUserName = () => {

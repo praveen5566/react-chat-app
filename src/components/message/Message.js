@@ -3,7 +3,7 @@ import './Message.css';
 import { USER_NAME } from '../../constants';
 
 export const Message = (props) => {
-    const { message } = props;
+    const { id, message } = props;
     const [isSelf, setIsSelf] = useState(true);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ export const Message = (props) => {
     }, []);
 
     return (
-        <div key={message.id}>
+        <li key={id}>
             {isSelf ?
                 <div className="message-wrapper-self">
                     <div className="message-text-self">{message.message}</div>
@@ -20,6 +20,6 @@ export const Message = (props) => {
                     <div className="message-text">{message.message}</div>
                     <div className="message-name">{message.name}</div>
                 </div>}
-        </div>
+        </li>
     );
 }
