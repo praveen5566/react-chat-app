@@ -50,9 +50,7 @@ export const ChatWindow = () => {
     }
 
     const handleRoomClick = (roomId) => {
-        if (roomId) {
-            setRoomId(roomId);
-        }
+        setRoomId(roomId);
     }
 
     return (
