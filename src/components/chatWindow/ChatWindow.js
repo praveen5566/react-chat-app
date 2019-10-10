@@ -4,7 +4,7 @@ import { RoomList } from '../roomList/RoomList';
 import { RoomDetail } from '../roomDetail/RoomDetail';
 import { MessageList } from '../messageList/MessageList';
 import { MessageInput } from '../messageInput/MessageInput';
-import { USER_NAME } from '../../constants';
+import { USER_NAME, UNKNOWN_USER } from '../../constants';
 import { getRoomList, getRoomDetail, getMessagesByRoomId, postMessages } from '../../api/chatService';
 
 export const ChatWindow = () => {
@@ -34,7 +34,7 @@ export const ChatWindow = () => {
     }, [isMessageSent]);
 
     const getUserName = () => {
-        return localStorage.getItem(USER_NAME) || 'User Name';
+        return localStorage.getItem(USER_NAME) || UNKNOWN_USER;
     };
 
     const handleMessageSend = (message) => {

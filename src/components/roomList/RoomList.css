@@ -10,7 +10,7 @@
 
 .room-list-items {
     margin: 2em 0;
-    overflow: scroll;
+    overflow: auto;
     font-weight: 400;
 }
 

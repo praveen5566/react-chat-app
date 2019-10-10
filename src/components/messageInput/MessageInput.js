@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './MessageInput.css';
+import { USER_NAME } from '../../constants';
 
 export const MessageInput = (props) => {
     const [message, setMessage] = useState('');
@@ -7,7 +8,7 @@ export const MessageInput = (props) => {
     const { onSend } = props;
 
     useEffect(() => {
-        message ? setDisable(false) : setDisable(true);
+        message && localStorage.getItem(USER_NAME) !== null ? setDisable(false) : setDisable(true);
     }, [message]);
 
     const handleClick = () => {
