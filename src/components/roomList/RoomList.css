@@ -25,6 +25,6 @@
     cursor: pointer;
 }
 
-.room-list-items li:active {
-    background: green;
+.room-active {
+    background: var(--app-theme-color-hover);
 }

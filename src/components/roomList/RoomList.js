@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RoomList.css';
 import { Loading } from '../common/loading/Loading';
 
 export function RoomList(props) {
-    const { rooms, userName } = props;
+    const { rooms, userName, onRoomClick } = props;
+    const [selectedRoomId, setSelectedRoomId] = useState(0); //TODO: save previous active chat room
+
+    const handleRoomItemClick = (roomId) => {
+        onRoomClick(roomId);
+        setSelectedRoomId(roomId);
+    }
 
     const getRoomName = (rooms) => {
         if (rooms && rooms.length > 0) {
-            return rooms.map((room) => <li key={room.id}>{room.name}</li>);
+            return rooms.map((room) =>
+                <li
+                    key={room.id}
+                    onClick={() => handleRoomItemClick(room.id)}
+                    className={`${selectedRoomId === room.id ? 'room-active' : ''}`}
+                >
+                    {room.name}
+                </li>);
         }
         return <Loading />;
     }

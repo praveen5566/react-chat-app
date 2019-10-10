@@ -11,24 +11,24 @@ export const ChatWindow = () => {
     const [roomList, setRoomList] = useState([]);
     const [roomName, setRoomName] = useState('');
     const [roomUsers, setRoomUsers] = useState('');
-    const [roomIndex, setRoomIndex] = useState(0);
+    const [roomId, setRoomId] = useState(0);
     const [messageList, setMessageList] = useState([]);
     const [isMessageSent, setIsMessageSent] = useState(false);
 
 
     useEffect(() => {
         getRoomList().then(data => setRoomList(data)).catch((e) => { console.log(e) });
-        getRoomDetail(roomIndex).then((data) => {
+        getRoomDetail(roomId).then((data) => {
             setRoomName(data.name);
             setRoomUsers(data.users);
         }).catch((e) => { console.log(e) });
-        getMessagesByRoomId(roomIndex).then((data) => {
+        getMessagesByRoomId(roomId).then((data) => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
-    }, []);
+    }, [roomId]);
 
     useEffect(() => {
-        getMessagesByRoomId(roomIndex).then((data) => {
+        getMessagesByRoomId(roomId).then((data) => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
     }, [isMessageSent]);
@@ -41,7 +41,7 @@ export const ChatWindow = () => {
         const name = getUserName();
         if (name && message) {
             const payload = { name, message };
-            postMessages(roomIndex, payload).then((response) => {
+            postMessages(roomId, payload).then((response) => {
                 setIsMessageSent(true);
                 console.log("post message api response", response);
             });
@@ -49,9 +49,15 @@ export const ChatWindow = () => {
         setIsMessageSent(false);
     }
 
+    const handleRoomClick = (roomId) => {
+        if (roomId) {
+            setRoomId(roomId);
+        }
+    }
+
     return (
         <div className="chat-window">
-            <RoomList rooms={roomList} userName={getUserName()} />
+            <RoomList rooms={roomList} userName={getUserName()} onRoomClick={handleRoomClick} />
             <RoomDetail roomName={roomName} roomUsers={roomUsers} />
             <MessageList messageList={messageList} />
             <MessageInput onSend={handleMessageSend} />
