@@ -24,7 +24,7 @@
     color: white;
     grid-area: messages;
     padding: 0 1em;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: rgb(247, 247, 247);
 }
 
