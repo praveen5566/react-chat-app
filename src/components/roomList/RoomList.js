@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './RoomList.css';
 import { Loading } from '../common/loading/Loading';
 
-export function RoomList(props) {
-    const { rooms, userName, onRoomClick } = props;
-    const [selectedRoomId, setSelectedRoomId] = useState(0); //TODO: save previous active chat room
+export const RoomList = (props) => {
+    const { rooms, onRoomClick } = props;
+    const [selectedRoomId, setSelectedRoomId] = useState(0); //TODO: save previous active chat room.
 
     const handleRoomItemClick = (roomId) => {
         onRoomClick(roomId);
@@ -27,8 +27,6 @@ export function RoomList(props) {
 
     return (
         <div className="room-list widget">
-            <header>{userName}</header>
-            <div className="room-list-status">Online for 12 minutes</div>
             <div className="room-list-items">
                 {getRoomName(rooms)}
             </div>

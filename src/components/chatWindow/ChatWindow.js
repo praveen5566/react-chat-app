@@ -4,6 +4,7 @@ import { RoomList } from '../roomList/RoomList';
 import { RoomDetail } from '../roomDetail/RoomDetail';
 import { MessageList } from '../messageList/MessageList';
 import { MessageInput } from '../messageInput/MessageInput';
+import { UserInfo } from '../userInfo/UserInfo';
 import { USER_NAME, UNKNOWN_USER } from '../../constants';
 import { getRoomList, getRoomDetail, getMessagesByRoomId, postMessages } from '../../api/chatService';
 
@@ -14,6 +15,7 @@ export const ChatWindow = () => {
     const [roomId, setRoomId] = useState(0);
     const [messageList, setMessageList] = useState([]);
     const [isMessageSent, setIsMessageSent] = useState(false);
+    const [isUserActive, setIsUserActive] = useState(true);
 
 
     useEffect(() => {
@@ -32,6 +34,23 @@ export const ChatWindow = () => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
     }, [isMessageSent]);
+
+    useEffect(() => {
+        window.addEventListener('focus', onTabFocus);
+        window.addEventListener('blur', onTabBlur);
+        return () => {
+            window.removeEventListener('focus', onTabFocus);
+            window.removeEventListener('blur', onTabBlur);
+        };
+    }, []);
+
+    const onTabFocus = () => {
+        setIsUserActive(true)
+    };
+
+    const onTabBlur = () => {
+        setIsUserActive(false)
+    };
 
     const getUserName = () => {
         return localStorage.getItem(USER_NAME) || UNKNOWN_USER;
@@ -55,7 +74,8 @@ export const ChatWindow = () => {
 
     return (
         <div className="chat-window">
-            <RoomList rooms={roomList} userName={getUserName()} onRoomClick={handleRoomClick} />
+            <UserInfo userName={getUserName()} isUserActive={isUserActive}/>
+            <RoomList rooms={roomList}  onRoomClick={handleRoomClick} />
             <RoomDetail roomName={roomName} roomUsers={roomUsers} />
             <MessageList messageList={messageList} />
             <MessageInput onSend={handleMessageSend} />
