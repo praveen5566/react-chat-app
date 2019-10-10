@@ -1,0 +1,30 @@
+.room-list {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.room-list-status {
+    margin: 1em;
+    font-size: 0.7em;
+}
+
+.room-list-items {
+    margin: 2em 0;
+    overflow: scroll;
+    font-weight: 400;
+}
+
+.room-list-items li {
+    padding: 1em 2em;
+    list-style: none;
+    text-align: left
+}
+
+.room-list-items li:hover {
+    background: var(--app-theme-color-hover);
+    cursor: pointer;
+}
+
+.room-list-items li:active {
+    background: green;
+}

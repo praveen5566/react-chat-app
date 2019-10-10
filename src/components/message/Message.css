@@ -1,0 +1,34 @@
+.message-wrapper {
+    text-align: left;
+}
+
+.message-wrapper-self {
+    float: right;
+    clear: both;
+}
+
+.message-text {
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    background-color: var(--app-color-white);
+    border-radius: 15px;
+    width: fit-content;
+    font-size: 0.9em;
+    color: var(--app-dark-font-color);
+}
+
+.message-text-self {
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    background-color: var(--app-theme-color);
+    border-radius: 15px;
+    width: fit-content;
+    font-size: 0.9em;
+}
+
+.message-name {
+    color: var(--app-light-font-color);
+    font-size: 0.7em;
+}

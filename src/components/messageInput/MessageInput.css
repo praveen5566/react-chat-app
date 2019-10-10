@@ -1,0 +1,4 @@
+.message-input button:disabled {
+    cursor: not-allowed;
+    color: var(--app-light-font-color);
+}

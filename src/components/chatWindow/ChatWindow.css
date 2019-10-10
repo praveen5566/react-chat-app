@@ -1,0 +1,63 @@
+.chat-window {
+    text-align: center;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 0.2fr 1.5fr 0.2fr;
+    grid-template-areas: "room-list room-detail""room-list messages""room-list message-input";
+}
+
+.room-list {
+    color: white;
+    grid-area: room-list;
+    background-color: var(--app-theme-color);
+}
+
+.room-detail {
+    text-align: center;
+    grid-area: room-detail;
+    color: black;
+    border-bottom: 1px solid #c5b7b7;
+}
+
+.messages {
+    color: white;
+    grid-area: messages;
+    padding: 0 1em;
+    overflow-y: scroll;
+    background-color: rgb(247, 247, 247);
+}
+
+.message-input {
+    grid-area: message-input;
+    background: white;
+}
+
+.widget {
+    padding: 1em;
+    text-align: center;
+}
+
+input {
+    width: 85%;
+    padding: 1.5em;
+    outline: none;
+    border: 0.1em solid grey;
+    border-radius: 4px;
+}
+
+button {
+    background: white;
+    color: dodgerblue;
+    text-decoration: none;
+    border: 0.2em solid white;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border-radius: 4px;
+    outline: none;
+    width: 15%;
+}
+
+button:hover {
+    cursor: pointer;
+}

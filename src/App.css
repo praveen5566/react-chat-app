@@ -1,0 +1,23 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --app-color-white: white;
+  --app-theme-color: rgb(235, 23, 0);
+  --app-theme-color-hover: rgb(103, 51, 45);
+  --app-color-grey: rgb(247, 247, 247);
+  --app-dark-font-color: black;
+  --app-light-font-color: rgb(117, 113, 113);
+}
+
+body {
+  margin: 0;
+  background-color: var(--app-color-white);
+}
+
+header {
+  font-family: Arial Black;
+}
