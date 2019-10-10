@@ -14,14 +14,14 @@ export const Message = (props) => {
     }, []);
 
     return (
-        <li key={id}>
+        <li className="message-container" key={id}>
             {isSelf ?
                 <div ref={messageScroll} className="message-wrapper-self">
                     <div className="message-text-self">{message.message}</div>
                 </div> :
-                <div ref={messageScroll} className="message-wrapper">
-                    <div className="message-text">{message.message}</div>
-                    <div className="message-name">{message.name}</div>
+                <div ref={messageScroll} className="message-wrapper-them">
+                    <div className="message-text-them">{message.message}</div>
+                    <div className="message-name-them">{message.name}</div>
                 </div>}
         </li>
     );
