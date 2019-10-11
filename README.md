@@ -1,7 +1,8 @@
 # Simple Chat Application using React Hooks.
 * To start the application `npm install` Node dependencies and run `npm start`.
-* This will open up the chat application on port 3000 on your browser.
-* There are few lint erros with react-hooks/exhaustive-deps which can be reolved by following [this][https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies] pattern.
+* To start the api server run `npm run api-server`. This will start the server on port 8080.
+* This will open up the chat application on port 3000 in your browser.
+* There are few lint erros with react-hooks/exhaustive-deps which can be resolved by following [this](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) pattern.
 * Adding unit tests, integration tests, logging and tracking functionality can be a good addition to maintain the code base.
 
 ## Available Scripts
