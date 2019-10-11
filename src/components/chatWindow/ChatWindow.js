@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './ChatWindow.css';
 import { RoomList } from '../roomList/RoomList';
 import { RoomDetail } from '../roomDetail/RoomDetail';
@@ -16,7 +16,25 @@ export const ChatWindow = () => {
     const [messageList, setMessageList] = useState([]);
     const [isMessageSent, setIsMessageSent] = useState(false);
     const [isUserActive, setIsUserActive] = useState(true);
+    const [currentMessage, setCurrentMessage] = useState({});
 
+    const channel = useMemo(() => new BroadcastChannel('chat-channel'), []);
+
+    useEffect(() => {
+        window.addEventListener('focus', onTabFocus);
+        window.addEventListener('blur', onTabBlur);
+        return () => {
+            window.removeEventListener('focus', onTabFocus);
+            window.removeEventListener('blur', onTabBlur);
+            channel.close();
+        };
+    }, []);
+
+    useEffect(() => {
+        getMessagesByRoomId(roomId).then((data) => {
+            setMessageList(data);
+        }).catch((e) => { console.log(e) });
+    }, [currentMessage]);
 
     useEffect(() => {
         getRoomList().then(data => setRoomList(data)).catch((e) => { console.log(e) });
@@ -33,16 +51,8 @@ export const ChatWindow = () => {
         getMessagesByRoomId(roomId).then((data) => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
+        channel.onmessage = msg => setCurrentMessage(msg.data);
     }, [isMessageSent]);
-
-    useEffect(() => {
-        window.addEventListener('focus', onTabFocus);
-        window.addEventListener('blur', onTabBlur);
-        return () => {
-            window.removeEventListener('focus', onTabFocus);
-            window.removeEventListener('blur', onTabBlur);
-        };
-    }, []);
 
     const onTabFocus = () => {
         setIsUserActive(true)
@@ -62,6 +72,7 @@ export const ChatWindow = () => {
             const payload = { name, message };
             postMessages(roomId, payload).then((response) => {
                 setIsMessageSent(true);
+                channel.postMessage(response);
                 console.log("post message api response", response);
             });
         }
@@ -74,8 +85,8 @@ export const ChatWindow = () => {
 
     return (
         <div className="chat-window">
-            <UserInfo userName={getUserName()} isUserActive={isUserActive}/>
-            <RoomList rooms={roomList}  onRoomClick={handleRoomClick} />
+            <UserInfo userName={getUserName()} isUserActive={isUserActive} />
+            <RoomList rooms={roomList} onRoomClick={handleRoomClick} />
             <RoomDetail roomName={roomName} roomUsers={roomUsers} />
             <MessageList messageList={messageList} />
             <MessageInput onSend={handleMessageSend} />
