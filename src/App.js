@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <Redirect exact from="/" to="/chatWindow" />
+      <Redirect exact from="/" to="/login" />
       <Route path="/login" component={UserNameInput} />
       <Route path="/chatWindow" component={ChatWindow} />
     </Router>

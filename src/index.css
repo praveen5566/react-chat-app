@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Custom Animations */
+
+.fade-in {
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown ease 2s;
+  -webkit-animation: fadeInDown ease 2s;
+  -moz-animation: fadeInDown ease 2s;
+  -o-animation: fadeInDown ease 2s;
+  -ms-animation: fadeInDown ease 2s;
+}
+
+
+@keyframes fadeInDown{
+  0% {
+    opacity:0;
+    transform: translate3d(0, -20%, 0);
+  }
+  100% {
+    opacity:1;
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -23,8 +23,8 @@ export const UserNameInput = () => {
     return (
         <div className="userNameInput-container">
             <div className="userNameInput-body">
-                {/* <img src={logo} className="userNameInput-logo" alt="logo" /> */}
-                <div className="userNameInput-card">
+                <img src={logo} className="userNameInput-logo fade-in" alt="logo" />
+                <div className="userNameInput-card fade-in-down">
                     <input className="userNameInput-textfield"
                         name="userName"
                         type="text"

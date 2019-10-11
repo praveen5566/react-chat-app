@@ -1,15 +1,13 @@
-
-
-
 const port = process.env.PORT || 8080
 const baseUrl = `http://localhost:${port}`;
 const apiPrefix = '/api'
 
-export function fetchData(url, options) {
+export const fetchData = (url, options) => {
+
     return fetch(url, options).then(data => data.json()).then(data => data).catch((e) => { throw e; });
 }
 
-export function getRoomList() {
+export const getRoomList = () => {
     const url = `${baseUrl}${apiPrefix}/rooms`;
     const options = {
         method: 'GET',
@@ -19,7 +17,7 @@ export function getRoomList() {
     return fetchData(url, options);
 }
 
-export function getRoomDetail(roomId) {
+export const getRoomDetail = (roomId) => {
     const url = `${baseUrl}${apiPrefix}/rooms/${roomId}`;
     const options = {
         method: 'GET',
@@ -29,7 +27,7 @@ export function getRoomDetail(roomId) {
     return fetchData(url, options);
 }
 
-export function getMessagesByRoomId(roomId) {
+export const getMessagesByRoomId = (roomId) => {
     const url = `${baseUrl}${apiPrefix}/rooms/${roomId}/messages`;
     const options = {
         method: 'GET',
@@ -39,7 +37,7 @@ export function getMessagesByRoomId(roomId) {
     return fetchData(url, options);
 }
 
-export function postMessages(roomId, payload) {
+export const postMessages = (roomId, payload) => {
     const url = `${baseUrl}${apiPrefix}/rooms/${roomId}/messages`;
     const options = {
         method: 'POST',
