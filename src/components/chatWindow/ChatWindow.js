@@ -18,7 +18,11 @@ export const ChatWindow = () => {
     const [isUserActive, setIsUserActive] = useState(true);
     const [currentMessage, setCurrentMessage] = useState({});
 
-    const channel = useMemo(() => new BroadcastChannel('chat-channel'), []);
+    const channel = useMemo(() => {
+        if (window.BroadcastChannel) {
+            return new BroadcastChannel('chat-channel');
+        }
+    }, []);
 
     useEffect(() => {
         window.addEventListener('focus', onTabFocus);
@@ -26,7 +30,7 @@ export const ChatWindow = () => {
         return () => {
             window.removeEventListener('focus', onTabFocus);
             window.removeEventListener('blur', onTabBlur);
-            channel.close();
+            if (channel) { channel.close() };
         };
     }, []);
 
@@ -51,7 +55,7 @@ export const ChatWindow = () => {
         getMessagesByRoomId(roomId).then((data) => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
-        channel.onmessage = msg => setCurrentMessage(msg.data);
+        if (channel) { channel.onmessage = msg => setCurrentMessage(msg.data); }
     }, [isMessageSent]);
 
     const onTabFocus = () => {
