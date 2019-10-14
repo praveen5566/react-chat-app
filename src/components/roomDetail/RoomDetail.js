@@ -12,7 +12,6 @@ export const RoomDetail = (props) => {
         return <Loading />;
     }
 
-
     return (
         <div className="room-detail widget">
             <header>{roomName}</header>

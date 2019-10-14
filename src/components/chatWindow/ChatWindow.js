@@ -30,7 +30,7 @@ export const ChatWindow = () => {
         return () => {
             window.removeEventListener('focus', onTabFocus);
             window.removeEventListener('blur', onTabBlur);
-            if (channel) { channel.close() };
+            if (channel) { channel.close() }
         };
     }, []);
 
