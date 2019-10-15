@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --env=node --coverage",
+    "test": "react-scripts test --watchAll=false --coverage",
     "lint": "eslint src",
     "eject": "react-scripts eject",
     "api-server": "node server.js"

@@ -76,7 +76,7 @@ export const ChatWindow = () => {
             const payload = { name, message };
             postMessages(roomId, payload).then((response) => {
                 setIsMessageSent(true);
-                channel.postMessage(response);
+                if (channel) { channel.postMessage(response); }
                 console.log("post message api response", response);
             });
         }
