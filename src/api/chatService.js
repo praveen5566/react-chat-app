@@ -1,10 +1,22 @@
+import { async } from "q";
+
 const port = process.env.PORT || 8080
 const baseUrl = `http://localhost:${port}`;
 const apiPrefix = '/api'
 
-export const fetchData = (url, options) => {
+// export const fetchData = (url, options) => {
+//     return fetch(url, options).then(data => data.json()).then(data => data).catch((e) => { throw e; });
+// }
 
-    return fetch(url, options).then(data => data.json()).then(data => data).catch((e) => { throw e; });
+export const fetchData = async (url, options) => {
+    try {
+        const data = await fetch(url, options);
+        const jsonData = await data.json();
+        return jsonData;
+    }
+    catch (e) {
+        throw e;
+    }
 }
 
 export const getRoomList = () => {
