@@ -1,5 +1,3 @@
-import { async } from "q";
-
 const port = process.env.PORT || 8080
 const baseUrl = `http://localhost:${port}`;
 const apiPrefix = '/api'

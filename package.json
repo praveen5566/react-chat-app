@@ -38,7 +38,9 @@
         "statements": 0
       }
     },
-    "coverageReporters": ["text"]
+    "coverageReporters": [
+      "text"
+    ]
   },
   "browserslist": {
     "production": [
