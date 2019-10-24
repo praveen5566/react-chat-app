@@ -1,3 +1,4 @@
 import io from 'socket.io-client';
+import { LIVE_ENDPOINT, LOCAL_ENDPOINT } from '../config';
 
-export const SOCKET = io.connect('http://localhost:8080');
+export const SOCKET = io.connect(LIVE_ENDPOINT);

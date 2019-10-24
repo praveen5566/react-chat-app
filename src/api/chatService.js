@@ -1,5 +1,7 @@
-const port = process.env.PORT || 8080
-const baseUrl = `http://localhost:${port}`;
+
+import { LIVE_ENDPOINT, LOCAL_ENDPOINT } from '../config';
+
+const baseUrl = LIVE_ENDPOINT;
 const apiPrefix = '/api'
 
 // export const fetchData = (url, options) => {
