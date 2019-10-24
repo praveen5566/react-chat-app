@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ChatWindow.css';
 import { RoomList } from '../roomList/RoomList';
 import { RoomDetail } from '../roomDetail/RoomDetail';

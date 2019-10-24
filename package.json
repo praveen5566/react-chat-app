@@ -24,7 +24,8 @@
     "test": "react-scripts test --watchAll=false --coverage",
     "lint": "eslint src",
     "eject": "react-scripts eject",
-    "api-server": "node server.js"
+    "api-server": "node server.js",
+    "api-server:watch": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
