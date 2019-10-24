@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Message.css';
-import { USER_NAME } from '../../constants';
 
 export const Message = (props) => {
-    const { id, message } = props;
+    const { id, message, userName } = props;
     const [isSelf, setIsSelf] = useState(true);
     const messageScroll = useRef(null);
 
     useEffect(() => {
-        setIsSelf(localStorage.getItem(USER_NAME) === message.name);
+        setIsSelf(userName === message.name);
         let node = messageScroll.current;
         node.scrollIntoView({ block: 'start', behavior: 'smooth', inline: 'nearest' });
     }, []);

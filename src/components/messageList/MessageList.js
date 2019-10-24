@@ -4,11 +4,11 @@ import { Loading } from '../common/loading/Loading';
 import { Message } from '../message/Message';
 
 export const MessageList = (props) => {
-    const { messageList } = props;
+    const { messageList, userName } = props;
 
     const getMessages = (messages) => {
         if (messages && messages.length > 0) {
-            return messages.map(message => <span key={message.id}><Message id={message.id} message={message} /></span>);
+            return messages.map(message => <span key={message.id}><Message userName={userName} id={message.id} message={message} /></span>);
         }
         return <Loading />;
     }

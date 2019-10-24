@@ -115,5 +115,28 @@ router.route('/rooms/:roomId/messages')
   })
 
 app.use('/api', router)
-app.listen(port)
+const server = app.listen(port)
 console.log(`API running at localhost:${port}/api`)
+
+// SOCKET.IO 
+
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  console.log('User connected');
+  socket.username = "Anonymous"
+
+  socket.on('join', (data) => {
+    socket.username = data.username
+    console.log(`New user named ${socket.username} joined`);
+  });
+
+  socket.on('new_message', (data) => {
+    io.sockets.emit('new_message', {message: data.message, username: socket.username});
+    console.log('New message is :', data);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+})

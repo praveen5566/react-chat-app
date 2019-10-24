@@ -5,12 +5,14 @@ import { RoomDetail } from '../roomDetail/RoomDetail';
 import { MessageList } from '../messageList/MessageList';
 import { MessageInput } from '../messageInput/MessageInput';
 import { UserInfo } from '../userInfo/UserInfo';
-import { USER_NAME, UNKNOWN_USER } from '../../constants';
 import { getRoomList, getRoomDetail, getMessagesByRoomId, postMessages } from '../../api/chatService';
+import { SOCKET } from '../../api/socket';
+import queryString from 'query-string';
 
 export const ChatWindow = () => {
     const [roomList, setRoomList] = useState([]);
     const [roomName, setRoomName] = useState('');
+    const [userName, setUserName] = useState('');
     const [roomUsers, setRoomUsers] = useState('');
     const [roomId, setRoomId] = useState(0);
     const [messageList, setMessageList] = useState([]);
@@ -18,19 +20,18 @@ export const ChatWindow = () => {
     const [isUserActive, setIsUserActive] = useState(true);
     const [currentMessage, setCurrentMessage] = useState({});
 
-    const channel = useMemo(() => {
-        if (window.BroadcastChannel) {
-            return new BroadcastChannel('chat-channel');
-        }
-    }, []);
-
     useEffect(() => {
+        const { username } = queryString.parse(window.location.search);
+        setUserName(username);
+        SOCKET.emit('join', { username });
         window.addEventListener('focus', onTabFocus);
         window.addEventListener('blur', onTabBlur);
+        
         return () => {
+            SOCKET.emit('disconnect');
+            SOCKET.off();
             window.removeEventListener('focus', onTabFocus);
             window.removeEventListener('blur', onTabBlur);
-            if (channel) { channel.close() }
         };
     }, []);
 
@@ -55,7 +56,7 @@ export const ChatWindow = () => {
         getMessagesByRoomId(roomId).then((data) => {
             setMessageList(data);
         }).catch((e) => { console.log(e) });
-        if (channel) { channel.onmessage = msg => setCurrentMessage(msg.data); }
+        SOCKET.on('new_message', data => setCurrentMessage(data.message));
     }, [isMessageSent]);
 
     const onTabFocus = () => {
@@ -66,18 +67,12 @@ export const ChatWindow = () => {
         setIsUserActive(false)
     };
 
-    const getUserName = () => {
-        return localStorage.getItem(USER_NAME) || UNKNOWN_USER;
-    };
-
     const handleMessageSend = (message) => {
-        const name = getUserName();
-        if (name && message) {
-            const payload = { name, message };
+        if (userName && message) {
+            const payload = { name: userName , message };
             postMessages(roomId, payload).then((response) => {
                 setIsMessageSent(true);
-                if (channel) { channel.postMessage(response); }
-                console.log("post message api response", response);
+                SOCKET.emit('new_message', { message });
             });
         }
         setIsMessageSent(false);
@@ -89,11 +84,11 @@ export const ChatWindow = () => {
 
     return (
         <div className="chat-window">
-            <UserInfo userName={getUserName()} isUserActive={isUserActive} />
+            <UserInfo userName={userName} isUserActive={isUserActive} />
             <RoomList rooms={roomList} onRoomClick={handleRoomClick} />
             <RoomDetail roomName={roomName} roomUsers={roomUsers} />
-            <MessageList messageList={messageList} />
-            <MessageInput onSend={handleMessageSend} />
+            <MessageList userName={userName} messageList={messageList} />
+            <MessageInput userName={userName} onSend={handleMessageSend} />
         </div>
     );
 }
