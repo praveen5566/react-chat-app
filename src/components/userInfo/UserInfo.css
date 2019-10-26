@@ -1,13 +1,13 @@
 .user-info {
-    color: var(--app-color-white);
-    background-color: var(--app-theme-color);
+  color: var(--app-color-white);
+  background-color: var(--app-theme-color);
 }
 
 .user-info header {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .user-status {
-    margin: 1em;
-    font-size: 0.7em;
+  margin: 1em;
+  font-size: 0.7em;
 }

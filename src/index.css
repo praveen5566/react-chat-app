@@ -22,13 +22,12 @@ code {
   -ms-animation: fadeIn ease 5s;
 }
 
-
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
@@ -40,14 +39,13 @@ code {
   -ms-animation: fadeInDown ease 2s;
 }
 
-
-@keyframes fadeInDown{
+@keyframes fadeInDown {
   0% {
-    opacity:0;
+    opacity: 0;
     transform: translate3d(0, -20%, 0);
   }
   100% {
-    opacity:1;
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }

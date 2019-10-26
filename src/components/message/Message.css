@@ -1,38 +1,38 @@
 .message-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-wrapper-them {
-    text-align: left;
+  text-align: left;
 }
 
 .message-text-them {
-    padding: 1em;
-    margin-top: 2em;
-    margin-bottom: 0.6em;
-    background-color: var(--app-color-white);
-    border-radius: 15px;
-    width: max-content;
-    font-size: 0.9em;
-    color: var(--app-dark-font-color);
+  padding: 1em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  background-color: var(--app-color-white);
+  border-radius: 15px;
+  width: max-content;
+  font-size: 0.9em;
+  color: var(--app-dark-font-color);
 }
 
 .message-name-them {
-    color: var(--app-light-font-color);
-    font-size: 0.7em;
+  color: var(--app-light-font-color);
+  font-size: 0.7em;
 }
 
 .message-wrapper-self {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 
 .message-text-self {
-    padding: 1em;
-    margin-top: 2em;
-    margin-bottom: 0.7em;
-    background-color: var(--app-theme-color);
-    border-radius: 15px;
-    width: fit-content;
-    font-size: 0.9em;
+  padding: 1em;
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+  background-color: var(--app-theme-color);
+  border-radius: 15px;
+  width: fit-content;
+  font-size: 0.9em;
 }

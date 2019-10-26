@@ -1,25 +1,25 @@
 .room-list {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .room-list-items {
-    margin: 1em 0 2em;
-    overflow: auto;
-    font-weight: 400;
+  margin: 1em 0 2em;
+  overflow: auto;
+  font-weight: 400;
 }
 
 .room-list-items li {
-    padding: 1em 2em;
-    list-style: none;
-    text-align: left
+  padding: 1em 2em;
+  list-style: none;
+  text-align: left;
 }
 
 .room-list-items li:hover {
-    background: var(--app-theme-color-hover);
-    cursor: pointer;
+  background: var(--app-theme-color-hover);
+  cursor: pointer;
 }
 
 .room-active {
-    background: var(--app-theme-color-hover);
+  background: var(--app-theme-color-hover);
 }

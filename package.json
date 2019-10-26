@@ -7,7 +7,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "nodemon": "^1.19.4",
-    "prettier": "^1.18.2",
     "query-string": "^6.8.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -23,6 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false --coverage",
     "lint": "eslint src",
+    "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "eject": "react-scripts eject",
     "api-server": "node server.js",
     "api-server:watch": "nodemon server.js"
@@ -68,6 +68,20 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+      }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
