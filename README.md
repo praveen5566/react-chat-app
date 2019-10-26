@@ -23,8 +23,14 @@ This will run a simple api server.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run test:debug`
+
+Before running this, place debugger; statements in any test and run.<br />
+This will start running your Jest tests, but pause before executing to allow a debugger to attach to the process.
+Open the following in Chrome `about:inspect`
 
 ### `npm run build`
 

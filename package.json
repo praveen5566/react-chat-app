@@ -18,9 +18,11 @@
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false --coverage",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "lint": "eslint src",
     "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "eject": "react-scripts eject",
@@ -71,12 +73,13 @@
     "express": "^4.17.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "source-map-explorer": "^2.1.0"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-      }
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
