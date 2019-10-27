@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './ChatWindow.css';
+import './ChatWindow.scss';
 import { RoomList } from '../roomList/RoomList';
 import { RoomDetail } from '../roomDetail/RoomDetail';
 import { MessageList } from '../messageList/MessageList';

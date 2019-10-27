@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Message.css';
+import './Message.scss';
 
 export const Message = (props) => {
     const { id, message, userName } = props;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './UserNameInput.css';
+import './UserNameInput.scss';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/ddLogo.svg';
 import { USER_NAME } from '../../constants';

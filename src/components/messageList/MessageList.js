@@ -1,5 +1,5 @@
 import React from 'react';
-import './MessageList.css';
+import './MessageList.scss';
 import { Loading } from '../common/loading/Loading';
 import { Message } from '../message/Message';
 

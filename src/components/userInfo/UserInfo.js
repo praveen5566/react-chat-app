@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './UserInfo.css';
+import './UserInfo.scss';
 
 export const UserInfo = (props) => {
     const { userName, isUserActive } = props;

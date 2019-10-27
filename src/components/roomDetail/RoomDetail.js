@@ -1,5 +1,5 @@
 import React from 'react';
-import './RoomDetail.css';
+import './RoomDetail.scss';
 import { Loading } from '../common/loading/Loading';
 
 export const RoomDetail = (props) => {

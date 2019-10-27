@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { UserNameInput } from './components/userNameInput/UserNameInput';
 import { ChatWindow } from './components/chatWindow/ChatWindow';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';

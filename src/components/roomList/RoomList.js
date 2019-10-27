@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RoomList.css';
+import './RoomList.scss';
 import { Loading } from '../common/loading/Loading';
 
 export const RoomList = (props) => {
