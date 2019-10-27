@@ -4,7 +4,8 @@ import App from './App';
 import { BrowserRouter as Router, MemoryRouter, Route, Redirect } from 'react-router-dom';
 
 it('renders without crashing', () => {
-  shallow(<App />);
+  const wrapper = shallow(<App />);
+  expect(wrapper).toMatchSnapshot();
 });
 
 it('should check routes', () => {

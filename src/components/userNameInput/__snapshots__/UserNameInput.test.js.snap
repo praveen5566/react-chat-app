@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render proper UI 1`] = `
+<div
+  className="userNameInput-container"
+>
+  <div
+    className="userNameInput-body"
+  >
+    <img
+      alt="logo"
+      className="userNameInput-logo fade-in"
+      src="ddLogo.svg"
+    />
+    <div
+      className="userNameInput-card fade-in-down"
+    >
+      <input
+        className="userNameInput-textfield"
+        maxLength="256"
+        name="userName"
+        onChange={[Function]}
+        placeholder="Type your username..."
+        type="text"
+      />
+      <Link
+        onClick={[Function]}
+        to="/chatWindow?username="
+      >
+        <button
+          className="userNameInput-button"
+          disabled={true}
+        >
+          Join the DoorDash Chat!
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+`;

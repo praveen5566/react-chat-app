@@ -6,6 +6,7 @@
     "cors": "^2.8.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "nodemon": "^1.19.4",
     "query-string": "^6.8.3",
     "react": "^16.10.2",
@@ -21,7 +22,8 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --coverage",
+    "test": "react-scripts test --watchAll=false",
+    "test:coverage": "react-scripts test --watchAll=false --coverage",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "lint": "eslint src",
     "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
@@ -48,7 +50,8 @@
     },
     "coverageReporters": [
       "text"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "browserslist": {
     "production": [
