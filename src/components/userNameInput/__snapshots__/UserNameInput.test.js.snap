@@ -7,11 +7,6 @@ exports[`should render proper UI 1`] = `
   <div
     className="userNameInput-body"
   >
-    <img
-      alt="logo"
-      className="userNameInput-logo fade-in"
-      src="ddLogo.svg"
-    />
     <div
       className="userNameInput-card fade-in-down"
     >
@@ -31,7 +26,7 @@ exports[`should render proper UI 1`] = `
           className="userNameInput-button"
           disabled={true}
         >
-          Join the DoorDash Chat!
+          Join a Chat Room!
         </button>
       </Link>
     </div>

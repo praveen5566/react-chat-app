@@ -3,16 +3,16 @@ import { getRoomList, getRoomDetail, getMessagesByRoomId } from "./chatService";
 global.fetchData = jest.fn();
 
 const MOCK_DATA_ROOM_LIST = [
-  { id: 0, name: "Tea Chats" },
-  { id: 1, name: "Coffee Chats" }
+  { id: 0, name: "Chat Room 1" },
+  { id: 1, name: "Chat Room 2" }
 ];
 const MOCK_DATA_ROOM_DETAIL = {
   id: 1,
-  name: "Coffee Chats",
+  name: "Chat Room 2",
   users: ["Jessye"]
 };
 const MOCK_MESSAGES_BY_ROOMID = [
-  { id: "ff35278", message: "ayy", name: "Jessye", reaction: null }
+  { id: "ff35278", message: "Good Morning", name: "Jessye", reaction: null }
 ];
 
 it("should test getRoomList", async () => {

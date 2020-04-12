@@ -27,8 +27,8 @@ router.use(function(req, res, next) {
 
 // Simple in memory database
 const database = [
-  { name: 'Tea Chats', id: 0, users: ['Ryan','Nick', 'Danielle'], messages: [{name: 'Ryan', message: 'ayyyyy', id: 'gg35545', reaction: null},{name: 'Nick', message: 'lmao', id: 'yy35578', reaction: null}, {name: 'Danielle', message: 'leggooooo', id: 'hh9843', reaction: null}]},
-  { name: 'Coffee Chats', id: 1, users: ['Jessye'], messages: [{name: 'Jessye', message: 'ayy', id: 'ff35278', reaction: null}]}
+  { name: 'Chat Room 1', id: 0, users: ['Praveen Ningappa','Nick', 'Danielle'], messages: [{name: 'Praveen Ningappa', message: 'Hi there, Welcome to the group!', id: 'gg35545', reaction: null},{name: 'Nick', message: 'Thank you', id: 'yy35578', reaction: null}, {name: 'Danielle', message: 'This is awesome!', id: 'hh9843', reaction: null}]},
+  { name: 'Chat Room 2', id: 1, users: ['Jessye'], messages: [{name: 'Jessye', message: 'Good Morning', id: 'ff35278', reaction: null}]}
 ]
 
 

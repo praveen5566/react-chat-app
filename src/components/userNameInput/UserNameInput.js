@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UserNameInput.scss';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/ddLogo.svg';
 import { USER_NAME } from '../../constants';
 
 export const UserNameInput = () => {
@@ -15,7 +14,6 @@ export const UserNameInput = () => {
     return (
         <div className="userNameInput-container">
             <div className="userNameInput-body">
-                <img src={logo} className="userNameInput-logo fade-in" alt="logo" />
                 <div className="userNameInput-card fade-in-down">
                     <input className="userNameInput-textfield"
                         name="userName"
@@ -25,7 +23,7 @@ export const UserNameInput = () => {
                         onChange={e => setUserName(e.target.value)}
                     />
                     <Link onClick={event => (!userName) ? event.preventDefault() : null} to={`/chatWindow?${USER_NAME}=${userName}`}>
-                        <button className="userNameInput-button" disabled={disable}>Join the DoorDash Chat!</button>
+                        <button className="userNameInput-button" disabled={disable}>Join a Chat Room!</button>
                     </Link>
                 </div>
             </div>
