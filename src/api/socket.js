@@ -1,4 +1,4 @@
 import io from "socket.io-client";
-import { LOCAL_ENDPOINT } from "../config";
+import { LIVE_ENDPOINT } from "../config";
 
-export const SOCKET = io.connect(LOCAL_ENDPOINT);
+export const SOCKET = io.connect(LIVE_ENDPOINT);

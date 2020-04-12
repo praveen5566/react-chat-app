@@ -1,6 +1,6 @@
-import { LOCAL_ENDPOINT } from "../config";
+import { LIVE_ENDPOINT } from "../config";
 
-const baseUrl = LOCAL_ENDPOINT;
+const baseUrl = LIVE_ENDPOINT;
 const apiPrefix = "/api";
 
 // export const fetchData = (url, options) => {
