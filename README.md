@@ -5,6 +5,8 @@
 * There are few lint errors with react-hooks/exhaustive-deps which can be resolved by following [this](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) pattern.
 * Adding unit tests, integration tests, logging and tracking functionality can be a good addition to maintain the code base.
 
+<img width="2878" height="1552" alt="chat-app" src="https://github.com/user-attachments/assets/57944ff0-7b1b-49a0-8837-fbe69acf119f" />
+
 ## Available Scripts
 
 In the project directory, you can run:
